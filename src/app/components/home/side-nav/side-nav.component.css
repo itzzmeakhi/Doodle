@@ -1,0 +1,37 @@
+.side-nav {
+    height: 100vh;
+    padding: 20px;
+    color: #fff;
+    background-color: #57606f;
+}
+
+.side-nav-btn {
+    margin: 10px;
+    background-color: #CED6E0;
+    color: #000000;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+hr {
+    margin: 10px;
+    background-color: #fff;
+}
+
+p {
+    margin: 0 20px;
+}
+
+p.layer-header {
+    font-size: 30px;
+    text-align: center;
+}
+
+p.layers {
+    cursor: pointer;
+}
+
+label {
+    font-size: 25px;
+}

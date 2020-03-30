@@ -1,0 +1,156 @@
+<div class = "side-nav">
+    <div class = "row">
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('circle')">
+            Circle
+        </div>
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('rectangle')">
+            Rectangle
+        </div>
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('line')">
+            Line
+        </div>
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('point')">
+            Point
+        </div>
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('brush')">
+            Brush
+        </div>
+
+        <div
+            class = "col-md-5 side-nav-btn"
+            (click) = "onSelectMode('pen')">
+            Pen
+        </div>
+
+    </div>
+
+    <hr *ngIf = "isCanvasHadLayers">
+
+    <div class = "row" *ngIf = "isCanvasHadLayers">
+
+        <p class = "layer-header"> Layers </p>
+
+    </div>
+
+    <hr *ngIf = "isCanvasHadLayers"> 
+
+    <div class = "row" *ngIf = "isCanvasHadLayers">
+
+        <div 
+            *ngFor = "let layer of layers; let i = index">
+
+            <p 
+                class = "lead layers"
+                (click) = "onSelectLayer(i)"> 
+                Layer {{i}}
+            </p>
+
+        </div>
+
+    </div>
+
+    <hr *ngIf = "isLayerSelected">
+
+    <form [formGroup] = "layerEditForm" *ngIf = "isLayerSelected" (ngSubmit) = "onFormSubmit()">
+
+        <!-- Border Width -->
+
+        <div class = "form-group row">
+
+            <label
+                for = "borderWidth"
+                class = "col-md-6 col-form-label">
+                Border Width : 
+            </label>
+
+            <div class = "col-md-6">
+
+                <input
+                    type = "number"
+                    class = "form-control form-control-sm"
+                    id = "borderWidth"
+                    name = "borderWidth"
+                    formControlName = "borderWidth"
+                    autocomplete = "off"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Border Color -->
+
+        <div class = "form-group row">
+
+            <label
+                for = "borderColor"
+                class = "col-md-6 col-form-label">
+                Border Color : 
+            </label>
+
+            <div class = "col-md-6">
+
+                <input
+                    type = "color"
+                    class = "form-control form-control-sm"
+                    id = "borderColor"
+                    name = "borderColor"
+                    formControlName = "borderColor"
+                    autocomplete = "off"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Fill Color -->
+
+        <div class = "form-group row" *ngIf = "isFillColor">
+
+            <label
+                for = "fillColor"
+                class = "col-md-6 col-form-label">
+                Fill Color : 
+            </label>
+
+            <div class = "col-md-6">
+
+                <input
+                    type = "color"
+                    class = "form-control form-control-sm"
+                    id = "fillColor"
+                    name = "fillColor"
+                    formControlName = "fillColor"
+                >
+
+            </div>
+
+        </div>
+
+        <!-- Button -->
+
+        <button
+            type = "submit"
+            class = "side-nav-btn">
+            Change
+        </button>
+
+
+    </form>
+
+</div>
